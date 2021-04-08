@@ -83,7 +83,7 @@ stdenv.mkDerivation rec {
     badPlatforms = [
       "armv5tel-linux" "armv6l-linux" "armv6m-linux"
       "sparc-linux" "sparc64-linux"
-      "riscv32-linux" "riscv64-linux"
+      "riscv32-linux"
       "alpha-linux"
     ];
     broken = stdenv.isDarwin; # https://hydra.nixos.org/build/128521440/nixlog/2
