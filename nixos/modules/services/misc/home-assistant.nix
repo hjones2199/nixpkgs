@@ -63,7 +63,7 @@ let
   };
 
 in {
-  meta.maintainers = with maintainers; [ dotlambda ];
+  meta.maintainers = teams.home-assistant.members;
 
   options.services.home-assistant = {
     enable = mkEnableOption "Home Assistant";
@@ -183,12 +183,12 @@ in {
     };
 
     package = mkOption {
-      default = pkgs.home-assistant.overrideAttrs (oldAttrs: {
-        doInstallCheck = false;
+      default = pkgs.home-assistant.overridePythonAttrs (oldAttrs: {
+        doCheck = false;
       });
       defaultText = literalExample ''
-        pkgs.home-assistant.overrideAttrs (oldAttrs: {
-          doInstallCheck = false;
+        pkgs.home-assistant.overridePythonAttrs (oldAttrs: {
+          doCheck = false;
         })
       '';
       type = types.package;

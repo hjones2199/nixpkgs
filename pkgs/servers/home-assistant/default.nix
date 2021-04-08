@@ -117,6 +117,7 @@ in with py.pkgs; buildPythonApplication rec {
     substituteInPlace setup.py \
       --replace "aiohttp==3.7.4" "aiohttp>=3.7.3" \
       --replace "attrs==19.3.0" "attrs>=19.3.0" \
+      --replace "awesomeversion==21.2.3" "awesomeversion>=21.2.3" \
       --replace "bcrypt==3.1.7" "bcrypt>=3.1.7" \
       --replace "cryptography==3.3.2" "cryptography" \
       --replace "httpx==0.16.1" "httpx>=0.16.1" \
@@ -182,11 +183,13 @@ in with py.pkgs; buildPythonApplication rec {
     "api"
     "auth"
     "automation"
+    "axis"
     "bayesian"
     "binary_sensor"
     "caldav"
     "calendar"
     "camera"
+    "cast"
     "climate"
     "cloud"
     "command_line"
@@ -216,6 +219,7 @@ in with py.pkgs; buildPythonApplication rec {
     "flux"
     "folder"
     "folder_watcher"
+    "freebox"
     "fritzbox"
     "fritzbox_callmonitor"
     "frontend"
@@ -227,6 +231,7 @@ in with py.pkgs; buildPythonApplication rec {
     "hddtemp"
     "history"
     "history_stats"
+    "homekit"
     "homekit_controller"
     "homeassistant"
     "homematic"
@@ -303,6 +308,7 @@ in with py.pkgs; buildPythonApplication rec {
     "sensor"
     "smarttub"
     "smtp"
+    "smappee"
     "solaredge"
     "sonos"
     "spotify"
@@ -378,6 +384,14 @@ in with py.pkgs; buildPythonApplication rec {
   preCheck = ''
     # the tests require the existance of a media dir
     mkdir /build/media
+
+    # error out when component test directory is missing, otherwise hidden by xdist execution :(
+    for component in ${lib.concatStringsSep " " (map lib.escapeShellArg componentTests)}; do
+      test -d "tests/components/$component" || {
+        >2& echo "ERROR: Tests for component '$component' were enabled, but they do not exist!"
+        exit 1
+      }
+    done
   '';
 
   passthru = {
@@ -391,6 +405,7 @@ in with py.pkgs; buildPythonApplication rec {
     homepage = "https://home-assistant.io/";
     description = "Open source home automation that puts local control and privacy first";
     license = licenses.asl20;
-    maintainers = with maintainers; [ dotlambda globin mic92 hexa ];
+    maintainers = teams.home-assistant.members;
+    platforms = platforms.linux;
   };
 }

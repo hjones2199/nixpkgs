@@ -236,6 +236,8 @@ in {
 
   aiocontextvars = callPackage ../development/python-modules/aiocontextvars { };
 
+  aiodiscover = callPackage ../development/python-modules/aiodiscover { };
+
   aiodns = callPackage ../development/python-modules/aiodns { };
 
   aioeafm = callPackage ../development/python-modules/aioeafm { };
@@ -537,6 +539,8 @@ in {
   astunparse = callPackage ../development/python-modules/astunparse { };
 
   async_generator = callPackage ../development/python-modules/async_generator { };
+
+  async-dns = callPackage ../development/python-modules/async-dns { };
 
   asyncio-dgram = callPackage ../development/python-modules/asyncio-dgram { };
 
@@ -1486,7 +1490,8 @@ in {
 
   conda = callPackage ../development/python-modules/conda { };
 
-  ConfigArgParse = callPackage ../development/python-modules/configargparse { };
+  ConfigArgParse = self.configargparse; # added 2021-03-18
+  configargparse = callPackage ../development/python-modules/configargparse { };
 
   configobj = callPackage ../development/python-modules/configobj { };
 
@@ -2030,6 +2035,8 @@ in {
   doctest-ignore-unicode = callPackage ../development/python-modules/doctest-ignore-unicode { };
 
   docutils = callPackage ../development/python-modules/docutils { };
+
+  docx2python = callPackage ../development/python-modules/docx2python { };
 
   dodgy = callPackage ../development/python-modules/dodgy { };
 
@@ -3109,6 +3116,8 @@ in {
 
   homeassistant-pyozw = callPackage ../development/python-modules/homeassistant-pyozw { };
 
+  homepluscontrol = callPackage ../development/python-modules/homepluscontrol { };
+
   hoomd-blue = toPythonModule (callPackage ../development/python-modules/hoomd-blue {
     inherit python;
   });
@@ -3659,9 +3668,7 @@ in {
 
   keras-preprocessing = callPackage ../development/python-modules/keras-preprocessing { };
 
-  kerberos = callPackage ../development/python-modules/kerberos {
-    inherit (pkgs) kerberos;
-  };
+  kerberos = callPackage ../development/python-modules/kerberos { };
 
   keyring = if isPy3k then
     callPackage ../development/python-modules/keyring { }
@@ -4001,6 +4008,8 @@ in {
   lml = callPackage ../development/python-modules/lml { };
 
   lmtpd = callPackage ../development/python-modules/lmtpd { };
+
+  localimport = callPackage ../development/python-modules/localimport { };
 
   localzone = callPackage ../development/python-modules/localzone { };
 
@@ -4637,6 +4646,8 @@ in {
 
   nodeenv = callPackage ../development/python-modules/nodeenv { };
 
+  nodepy-runtime = callPackage ../development/python-modules/nodepy-runtime { };
+
   node-semver = callPackage ../development/python-modules/node-semver { };
 
   noise = callPackage ../development/python-modules/noise { };
@@ -4801,6 +4812,8 @@ in {
     enablePython = true;
     pythonPackages = self;
   }));
+
+  openhomedevice = callPackage ../development/python-modules/openhomedevice { };
 
   openidc-client = callPackage ../development/python-modules/openidc-client { };
 
@@ -6564,6 +6577,8 @@ in {
   pytest-quickcheck = self.pytestquickcheck;
   pytestquickcheck = callPackage ../development/python-modules/pytest-quickcheck { };
 
+  pytest-raises = callPackage ../development/python-modules/pytest-raises { };
+
   pytest-raisesregexp = callPackage ../development/python-modules/pytest-raisesregexp { };
 
   pytest-randomly = callPackage ../development/python-modules/pytest-randomly { };
@@ -6914,6 +6929,8 @@ in {
   pytube = callPackage ../development/python-modules/pytube { };
 
   pytun = callPackage ../development/python-modules/pytun { };
+
+  pyturbojpeg = callPackage ../development/python-modules/pyturbojpeg { };
 
   pytz = callPackage ../development/python-modules/pytz { };
 
@@ -7280,6 +7297,8 @@ in {
 
   ring-doorbell = callPackage ../development/python-modules/ring-doorbell { };
 
+  riprova = callPackage ../development/python-modules/riprova { };
+
   ripser = callPackage ../development/python-modules/ripser { };
 
   rising = callPackage ../development/python-modules/rising { };
@@ -7331,6 +7350,8 @@ in {
   roman = callPackage ../development/python-modules/roman { };
 
   roombapy = callPackage ../development/python-modules/roombapy { };
+
+  ronin = callPackage ../development/python-modules/ronin { };
 
   rope = callPackage ../development/python-modules/rope { };
 
@@ -7526,6 +7547,8 @@ in {
   scrapy-splash = callPackage ../development/python-modules/scrapy-splash { };
 
   screeninfo = callPackage ../development/python-modules/screeninfo { };
+
+  screenlogicpy = callPackage ../development/python-modules/screenlogicpy { };
 
   scripttest = callPackage ../development/python-modules/scripttest { };
 
@@ -9017,6 +9040,8 @@ in {
   yahooweather = callPackage ../development/python-modules/yahooweather { };
 
   yalesmartalarmclient = callPackage ../development/python-modules/yalesmartalarmclient { };
+
+  yalexs = callPackage ../development/python-modules/yalexs { };
 
   yamale = callPackage ../development/python-modules/yamale { };
 
