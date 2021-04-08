@@ -5,7 +5,7 @@
 , cfitsio
 , libusb1
 , zlib
-, boost
+, boost17x
 , libnova
 , curl
 , libjpeg
@@ -33,7 +33,7 @@ stdenv.mkDerivation rec {
     cfitsio
     libusb1
     zlib
-    boost
+    boost17x
     libnova
     libjpeg
     gsl
